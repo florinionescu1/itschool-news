@@ -8,11 +8,13 @@ import NewsCategory from "./pages/NewsCategory/NewsCategory";
 import NewsDetails from "./pages/NewsDetails/NewsDetails";
 import { FavoritesContext } from "./store/Favorites/context";
 import { initialState, favoritesReducer } from "./store/Favorites/reducer";
+import { useLocalStorage } from "./utils/hooks/useLocalStorage";
 
 function App() {
+  const [initialLocalStorageState] = useLocalStorage("favorites", initialState);
   const [favoritesState, favoritesDispatch] = useReducer(
     favoritesReducer,
-    initialState
+    initialLocalStorageState
   );
   const favoritesContextValue = {
     favoritesState,

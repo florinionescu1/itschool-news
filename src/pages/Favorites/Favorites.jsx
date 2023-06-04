@@ -1,12 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import Container from "react-bootstrap/Container";
 import { FavoritesContext } from "../../store/Favorites/context";
 import NewsCardList from "../../components/NewsCardList/NewsCardList";
+import { useLocalStorage } from "../../utils/hooks/useLocalStorage";
 
 function Favorites() {
   const { favoritesState } = useContext(FavoritesContext);
   const { products } = favoritesState;
+
+  const [_, setLocalStorageState] = useLocalStorage(
+    "favorites",
+    favoritesState
+  );
+
+  useEffect(() => {
+    setLocalStorageState(favoritesState);
+  }, [favoritesState, setLocalStorageState]);
 
   return (
     <Layout>
