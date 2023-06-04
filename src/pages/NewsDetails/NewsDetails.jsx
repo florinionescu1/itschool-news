@@ -49,7 +49,7 @@ function NewsDetails() {
               <Button
                 onClick={() => {
                   handleAddToFavorites({
-                    id: newsId,
+                    id: paramsFromUrl,
                     thumbnail,
                     title,
                     description,
