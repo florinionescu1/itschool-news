@@ -31,6 +31,9 @@ function NewsCategory() {
     case "football":
       title = "Fotbal";
       break;
+    case "fashion":
+      title = "Fashion";
+      break;
     default:
       break;
   }
