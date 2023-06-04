@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/category/:categoryId" element={<NewsCategory />} />
-        <Route path="/news/:newsId*" element={<NewsDetails />} />
+        <Route path="/news/:newsId/*" element={<NewsDetails />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </div>
